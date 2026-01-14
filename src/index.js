@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import authRoutes from "./routes/auth.js"
+import bookRoutes from "./routes/book.js"
 import { errorHandler } from "./middleware/errorHandler.js"
 
 dotenv.config()
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Routes
 app.use("/api/auth", authRoutes)
+app.use("/api/books", bookRoutes)
 
 // Health check
 app.get("/api/health", (req, res) => {
